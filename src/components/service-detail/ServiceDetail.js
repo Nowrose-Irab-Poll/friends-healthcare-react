@@ -31,13 +31,13 @@ const ServiceDetail = () => {
 
   return (
     <div
-      className="d-md-flex m-5 p-5 justify-content-center align-items-center"
+      className="d-md-flex m-md-5 p-md-5 justify-content-center align-items-center text-center"
       style={sectionStyle}
     >
-      <div className="m-4 p-4 w-50">
+      <div className="m-4 p-4 w-50 d-flex justify-content-center align-items-center">
         <Image src={photoLink} rounded fluid></Image>
       </div>
-      <div className="m-4 p-4 w-50">
+      <div className="m-1 p-4 w-50">
         <h1>{fullServiceName}</h1>
         <p>{descriptionDetail}</p>
       </div>

@@ -16,7 +16,7 @@ const Services = () => {
   };
 
   return (
-    <div id="services" style={sectionStyle} className="p-4 m-4">
+    <div id="services" style={sectionStyle} className="p-5 m-5">
       <h2>Our Services</h2>
       <CardGroup>
         <Row xs={1} md={2} lg={3} className="g-4">

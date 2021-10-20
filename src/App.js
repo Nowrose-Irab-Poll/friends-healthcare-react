@@ -12,6 +12,8 @@ import Footer from "./components/shared/footer/Footer";
 import ServiceDetail from "./components/service-detail/ServiceDetail";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
+import AuthProvider, { AuthContext } from "./context/AuthProvider";
+import PrivateRoute from "./components/login/PrivateRoute";
 
 function App() {
   const appStyle = {
@@ -19,37 +21,39 @@ function App() {
   };
 
   return (
-    <div className="App" style={appStyle}>
-      <Router>
-        <Header />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/doctors">
-            <Doctors />
-          </Route>
-          <Route path="/appointment">
-            <Appointment />
-          </Route>
-          <Route path="/service/:serviceId">
-            <ServiceDetail />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="*">
-            <NotFound />
-          </Route>
-        </Switch>
-        <Footer />
-      </Router>
+    <div className="App d-flex flex-column min-vh-100" style={appStyle}>
+      <AuthProvider>
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/doctors">
+              <Doctors />
+            </Route>
+            <PrivateRoute path="/appointment">
+              <Appointment />
+            </PrivateRoute>
+            <Route path="/service/:serviceId">
+              <ServiceDetail />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route path="*">
+              <NotFound />
+            </Route>
+          </Switch>
+          <Footer />
+        </Router>
+      </AuthProvider>
     </div>
   );
 }
